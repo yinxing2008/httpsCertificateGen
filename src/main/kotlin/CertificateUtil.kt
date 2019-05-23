@@ -1,3 +1,5 @@
+package com.cxyzy.note.server
+
 import kotlinx.io.core.*
 import java.io.File
 import java.math.BigInteger
@@ -10,6 +12,8 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 
+//COMMON_NAME must be modified to correct IP address
+const val COMMON_NAME = "192.168.186.80"
 const val KEY_ALIAS = "server"
 const val KEY_PASSWORD = "123456"
 const val VALID_DAYS = 365L
@@ -17,7 +21,6 @@ const val JKS_PASSWORD = KEY_PASSWORD
 const val COUNTRY = "CN"
 const val ORGANIZATION = "cxyzy"
 const val ORGANIZATION_UNIT = "internet"
-const val COMMON_NAME = "localhost"
 
 fun main(args: Array<String>) {
     val file = File("https_keystore.jks")
@@ -58,8 +61,8 @@ fun generateCertificate(
             keyPair = keyPair,
             algorithm = algorithm,
             from = from, to = to,
-            domains = listOf("127.0.0.1", "localhost"),
-            ipAddresses = listOf(Inet4Address.getByName("127.0.0.1"))
+            domains = listOf("127.0.0.2", "localhost"),
+            ipAddresses = listOf(Inet4Address.getByName(COMMON_NAME))
         )
     }.readBytes()
 
