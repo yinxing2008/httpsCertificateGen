@@ -21,9 +21,10 @@ const val COMMON_NAME = "localhost"
 
 fun main(args: Array<String>) {
     val file = File("https_keystore.jks")
-    if (!file.exists()) {
-        generateCertificate(file)
+    if (file.exists()) {
+        file.delete()
     }
+    generateCertificate(file)
     System.out.println("Certification file generated:${file.absolutePath}")
 }
 
