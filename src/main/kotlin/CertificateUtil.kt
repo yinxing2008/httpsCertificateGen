@@ -61,7 +61,7 @@ fun generateCertificate(
             keyPair = keyPair,
             algorithm = algorithm,
             from = from, to = to,
-            domains = listOf("127.0.0.2", "localhost"),
+            domains = listOf("127.0.0.1", "localhost"),
             ipAddresses = listOf(Inet4Address.getByName(COMMON_NAME))
         )
     }.readBytes()
