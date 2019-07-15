@@ -13,7 +13,7 @@ import java.time.ZoneId
 import java.util.*
 
 //COMMON_NAME must be modified to correct IP address
-const val COMMON_NAME = "192.168.186.80"
+const val COMMON_NAME = "192.168.11.35"
 const val KEY_ALIAS = "server"
 const val KEY_PASSWORD = "123456"
 const val VALID_DAYS = 365L
